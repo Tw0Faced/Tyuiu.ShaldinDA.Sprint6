@@ -8,12 +8,12 @@ namespace Tyuiu.ShaldinDA.Sprint6.Task7.V12.Lib
         {
             string[] lines = File.ReadAllLines(path);
             int rows = lines.Length;
-            int columns = lines[0].Split(',').Length;
+            int columns = lines[0].Split(';').Length;
             int[,] result = new int[rows, columns];
 
             for (int i = 0; i < rows; i++)
             {
-                string[] values = lines[i].Split(',');
+                string[] values = lines[i].Split(';');
                 for (int j = 0; j < columns; j++)
                 {
                     result[i, j] = int.Parse(values[j]);
