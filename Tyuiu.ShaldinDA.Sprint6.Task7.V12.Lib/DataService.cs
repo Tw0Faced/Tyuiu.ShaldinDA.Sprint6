@@ -26,20 +26,17 @@ namespace Tyuiu.ShaldinDA.Sprint6.Task7.V12.Lib
                     aValues[r, c] = Convert.ToInt32(lines_r[c]);
                 }
             }
-            int xRow = 1;
 
-            for (int i = xRow; i <= xRow; i++)
+            for (int r = 0; r < rows; r++)
             {
-                for (int j = 0; j < colums; j++)
+                if (aValues[r, 8] != 10) 
                 {
-                    if (aValues[i, j] % 2 == 0)
-                    {
-                        aValues[i, j] = 1;
-                    }
+                    aValues[r, 8] = 0; 
                 }
             }
-            return aValues;
 
+            return aValues;
         }
+
     }
 }
