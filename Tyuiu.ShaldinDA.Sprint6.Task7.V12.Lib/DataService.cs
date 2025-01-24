@@ -16,17 +16,13 @@ namespace Tyuiu.ShaldinDA.Sprint6.Task7.V12.Lib
                 string[] values = lines[i].Split(';');
                 for (int j = 0; j < columns; j++)
                 {
-                    if (int.TryParse(values[j], out int value)) 
+                    if (int.TryParse(values[j], out int value))
                     {
                         result[i, j] = value;
                         if (j == 8 && result[i, j] != 10)
                         {
                             result[i, j] = 0;
                         }
-                    }
-                    else
-                    {
-                        result[i, j] = 0;
                     }
                 }
             }
