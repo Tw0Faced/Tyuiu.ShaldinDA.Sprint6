@@ -13,7 +13,7 @@ namespace Tyuiu.ShaldinDA.Sprint6.Task1.V23.Lib
             int count = 0;
             for (int i = startValue; i <= stopValue; i++)
             {
-                y = Math.Round(Math.Sin(i) + (2 * i)/(3) - Math.Cos(i) * 4 * i, 2);
+                y = Math.Round(Math.Sin(i) + (2 * i)/(3) - Math.Cos(i) * (4 * i), 2);
                 valueArray[count] = y;
                 count++;
             }
