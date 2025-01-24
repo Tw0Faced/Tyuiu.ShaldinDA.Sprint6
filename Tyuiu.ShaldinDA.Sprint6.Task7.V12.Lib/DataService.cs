@@ -6,28 +6,40 @@ namespace Tyuiu.ShaldinDA.Sprint6.Task7.V12.Lib
     {
         public int[,] GetMatrix(string path)
         {
-            string[] lines = File.ReadAllLines(path);
-            int rows = lines.Length;
-            int columns = lines[0].Split(';').Length;
-            int[,] result = new int[rows, columns];
+            int rows;
+            int colums;
+            string fileData = File.ReadAllText(path);
 
-            for (int i = 0; i < rows; i++)
+            fileData = fileData.Replace("\n", "\r");
+            string[] lines = fileData.Split(new char[] { '\r' }, StringSplitOptions.RemoveEmptyEntries);
+
+            rows = lines.Length;
+            colums = lines[0].Split(';').Length;
+
+            int[,] aValues = new int[rows, colums];
+
+            for (int r = 0; r < rows; r++)
             {
-                string[] values = lines[i].Split(';');
-                for (int j = 0; j < columns; j++)
+                string[] lines_r = lines[r].Split(';');
+                for (int c = 0; c < colums; c++)
                 {
-                    if (int.TryParse(values[j], out int value))
+                    aValues[r, c] = Convert.ToInt32(lines_r[c]);
+                }
+            }
+            int xRow = 1;
+
+            for (int i = xRow; i <= xRow; i++)
+            {
+                for (int j = 0; j < colums; j++)
+                {
+                    if (aValues[i, j] % 2 == 0)
                     {
-                        result[i, j] = value;
-                        if (j == 8 && result[i, j] != 10)
-                        {
-                            result[i, j] = 0;
-                        }
+                        aValues[i, j] = 1;
                     }
                 }
             }
+            return aValues;
 
-            return result;
         }
     }
 }
